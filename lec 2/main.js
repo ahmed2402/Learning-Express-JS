@@ -1,9 +1,11 @@
 const express = require('express')
+const blog = require('./routes/blog')
 const { log } = require('node:console')
 const app = express()
 const port = 3000
 
 app.use(express.static('public'))
+app.use('./blog', blog)
 
 app.get('/', (req, res) => {
     console.log("hey its a get req");
